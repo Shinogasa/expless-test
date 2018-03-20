@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
       title: 'はじめてのNode.js',
       boardList: rows
     });
-    console.log(rows);
   });
 });
 
