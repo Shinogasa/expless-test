@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
+var multer = require("multer");
 var connection = require('../mysqlConnection');
+var upload = multer({ dest: './public/images/uploads/' });
 
 router.get('/:board_id', function(req, res, next) {
   var boardId = req.params.board_id;
@@ -18,7 +20,8 @@ router.get('/:board_id', function(req, res, next) {
   });
 });
 
-router.post('/:board_id', function(req, res, next) {
+router.post('/:board_id', upload.single('image_file'), function(req, res) {
+  console.log(req.file);
   var message = req.body.message;
   var boardId = req.params.board_id;
   var userId = req.session.user_id? req.session.user_id: 0;
