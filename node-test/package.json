@@ -20,5 +20,8 @@
     "mysql": "^2.15.0",
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.0.3"
   }
 }
