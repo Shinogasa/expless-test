@@ -5,10 +5,12 @@
       <ul class="main-list">
           <% messageList.forEach(function(messageItem) { %>
               <li class="main-list__item">
-                  <div class="message">
-                      <p class="message__title"><%= messageItem.message %></p>
-                      <p class="message__date"><%= messageItem.user_name %> <%= messageItem.created_at %></p>
-                  </div>
+                <div class="message">
+                    <% if (messageItem.image_path) { %>
+                        <a href="<%= messageItem.image_path %>" class="message__image" style="background-image: url(<%= messageItem.image_path %>);"></a>
+                    <% } %>
+                    <p class="message__title"><%= messageItem.message %></p>
+                </div>
               </li>
           <% }); %>
       </ul>
