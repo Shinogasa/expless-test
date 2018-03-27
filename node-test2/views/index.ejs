@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Welcome to <%= title %></title>
+    <button>Request!!</button>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+      $('button').on('click',function() {
+        socket.emit('request');
+      });
+      socket.on('response', function() {
+        alert('Get response!!')
+      });
+    </script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
